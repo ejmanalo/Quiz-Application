@@ -6,13 +6,78 @@
     <title>Quiz Application</title>
     <style>
        body {
-            
             margin: 20px;
             background: radial-gradient(circle, rgba(238,174,219,1) 0%, rgba(148,233,221,1) 100%);
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        #main-container{
+            max-width: 600px;
+            margin: auto;
+            border: 2px solid rgb(230, 222, 213);
+            padding: 30px 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(136, 48, 48, 0.1);
+            height: 550px;
         }
         
+        .header {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3px 15px;
+            border-bottom: 0.1em solid #97FEED;
+            border: 1px solid rgb(176, 176, 167);
+            box-shadow: 0 0 10px  rgba(172, 110, 110, 0.1)
 
-        button {
+            
+            }
+        .header h1{
+            background-color: rgb(132, 174, 211);
+            align-items: center;
+            padding: 10px 70px 6px 5px;
+            margin-top: 3px;
+            display: block;
+            border-radius: 5px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: rgb(83, 107, 108);
+            
+        }
+        
+        #timer{
+            align-items: left;
+            background-color: rgb(132, 174, 211);
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            color: rgb(58, 99, 100);
+            font-size: large;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+        }
+
+        #quiz-container{
+            max-width: 600px;
+            margin: 0;
+            border: 2px solid rgb(198, 195, 190);
+            padding: 30px 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(136, 48, 48, 0.1);
+            height: 350px;
+        }
+        #question-container{
+            background-color:  rgb(132, 174, 211);
+            align-items: center;
+            border-radius: 4px;
+            width: 100%;
+            margin: 5px ;
+            padding: 20px;
+            font-size: larger;
+            
+
+        }
+        button{
             text-align: center;
             background-color: rgb(223, 203, 177);
             width: 100%;
@@ -21,157 +86,76 @@
             padding: 10px;
             font-size: larger;
             border: none;
-            box-shadow: 5px 10px 6px 2px;
-            transition: background-color 0.10s, box-shadow 0.3s; 
-            box-shadow: 0 0 10px rgba(136, 48, 48, 0.1);
-}
-
-        button:hover {  
-            border-color: rgb(200, 150, 127);
+            box-shadow: 0 0 10px rgba(136, 48, 48, 0.1);  
+        }
+        button:hover{
             background-color: burlywood;
-}
-
-button:active {
-    background-color: darkblue; 
-    box-shadow: 2px 4px 4px 6px; 
-}
-
-
-        #quiz-container {
-            max-width: 600px;
-            margin: auto;
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-image: url("bg1.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
+            border: 2px solid rgb(160, 193, 194);
         }
 
-        .header {
-            margin-bottom: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 0.6em;
-            border-bottom: 0.1em solid #97FEED;
-            
-            }
-
-        .question {
-            margin-bottom: 20px;
-            color: gold;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: 2em;
+        #feedback{
+            color: rgb(65, 117, 117);
+            text-align: center;
+            margin-top: 15px;
+            font-size: larger;
         }
 
-        .options button {
-    display: inline-block;
-    width: 45%; 
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    border: solid;
-    border-radius: 20px;
-    color: blue;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
-    cursor: pointer;
-}
 
-.options button:hover {
-    background-color: green;
-    transition: 0.5s;
-}
-        
-        .options button:hover {
-            background-color: green;
-            transition: 0.5s;
-        }
-
-        #timer {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: gold;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-
-        #feedback {
-            font-weight: bold;
-            margin-top: 10px;
-            color: gold;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-
-        }
-
-        #next-btn, #restart-btn {
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            font-size: 1em;
-        }
-
-        #next-btn:hover, #restart-btn:hover {
-            background-color: yellow;
-            color: red;
-            transition: 0.6s;
-        }
+    
     </style>
 </head>
 <body>
-    
-    <div id="quiz-container">
+    <div id="main-container">
         <div class="header">
-            <h1>All About WS101</h1>
+            <h1>All About Web</h1>
             <div id="timer">
-                <h1>20s</span>
-
+                <img src="timer.png" width="20px">
+                <span>20s</span>
             </div>
-
-
         </div>
-
-
-        <div id="timer"></div>
-        <div id="question-container" class="question"></div>
-        <div id="options-container" class="options"></div>
-        <div id="feedback"></div>
+        <div id="quiz-container">
+            <div id="question-container" class="question"></div>
+            <div id="options-container" class="options"></div>
+            <div id="feedback"></div>
+        </div>
+        
         <button id="next-btn">Next</button>
         <button id="restart-btn" style="display: none;">Restart</button>
     </div>
 
     <script>
         const questions = [
-        {
-                    question: "Why do we use CSS?",
-                    choices: ["Structure", "Design/Style", "Behavior", "None of the Above"],
-                    correctAnswer: "Design/Style"
+            {
+                question: "What is the purpose of writing a comments in Programming?",
+                options: ["It explains the code and helps to edit the source code at a later date", 
+                                "It is used to discover more about Programming", 
+                                "To have a better understanding of the written codes", 
+                                " None of the above"],
+                correctAnswer: "It explains the code and helps to edit the source code at a later date"
+            },
+            {
+                question: "Why do we use CSS?",
+                options: ["Structure", "Design/Style", "Behavior", "None of the Above"],
+                correctAnswer: "Design/Style"
+            },
+            {
+                question: "Which of these is NOT an HTML Element?",
+                options: ["By start tag", "By end tag", "By element content", "By statement"],
+                correctAnswer: "By statement"
                 },
 
                 {
-                    question: "Which of these is NOT an HTML Element?",
-                    choices: ["By start tag", "By end tag", "By element content", "By statement"],
-                    correctAnswer: "By statement"
+                question: "It is used to store elements of different types",
+                options: ["functions", "objects", "arrays", "subjects"],
+                correctAnswer: "arrays"
                 },
 
                 {
-                    question: "It is used to store elements of different types",
-                    choices: ["functions", "objects", "arrays", "subjects"],
-                    correctAnswer: "arrays"
-                },
-
-                {
-                    question: "Where does the best practice to put Javascript element?",
-                    choices: ["<style>", "<body>", "<head>", "another file"],
-                    correctAnswer: "<body>"
-                }
-            ];
+                question: "Where does the best practice to put Javascript element?",
+                options: ["<style>", "<body>", "<head>", "another file"],
+                correctAnswer: "<body>"
+            }
+        ];
 
         let currentQuestionIndex = 0;
         let score = 0;
@@ -201,8 +185,8 @@ button:active {
                 optionsContainer.appendChild(button);
             });
 
-            // Display and start the 15-second timer
-            let timeLeft = 15;
+            // This is to display and set the timer for 20s
+            let timeLeft = 20;
             updateTimerDisplay(timeLeft);
             timer = setInterval(() => {
                 timeLeft--;
